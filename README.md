@@ -1,61 +1,99 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🔐 Laravel Role-Based Authentication System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A Laravel-based **Role Authentication System** with separate **Admin** and **User** dashboards.  
+It demonstrates how to implement **role-based login redirection** and secure dashboards with a modern **Tailwind CSS UI**.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## ✨ Features
+- ✅ Authentication with Laravel Breeze  
+- ✅ Role-based redirection after login (Admin/User)  
+- ✅ Admin Dashboard – Manage users, content, and reports  
+- ✅ User Dashboard – Personalized welcome screen  
+- ✅ Middleware protection for secure routes  
+- ✅ Tailwind CSS styled dashboards  
+- ✅ Database seeder with default Admin and User  
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 🚀 Tech Stack
+- **Framework**: Laravel 10  
+- **Language**: PHP 8+  
+- **Database**: MySQL
+- **Frontend**: Blade + Tailwind CSS  
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## ⚙️ Installation
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### 1️⃣ Clone the repository
+```bash
+git clone https://github.com/your-username/laravel-role-auth.git
+cd laravel-role-auth
+2️⃣ Install dependencies
+bash
+Copy code
+composer install
+npm install && npm run dev
+3️⃣ Setup environment
+Copy .env.example into .env:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+bash
+Copy code
+cp .env.example .env
+Then update your database credentials inside .env.
 
-## Laravel Sponsors
+4️⃣ Run migrations & seeders
+bash
+Copy code
+php artisan migrate --seed
+This will create tables and insert one admin user and one normal user.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+👥 Default Users (Seeded)
+Admin
 
-### Premium Partners
+Email: admin@example.com
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+Password: password
 
-## Contributing
+User
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Email: user@example.com
 
-## Code of Conduct
+Password: password
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+▶️ Usage
+Visit /login to log in
 
-## Security Vulnerabilities
+Admins will be redirected to /admin/dashboard
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Users will be redirected to /user/dashboard
 
-## License
+📂 Project Structure
+bash
+Copy code
+app/
+ └── Http/
+     └── Controllers/
+         └── Auth/
+             ├── AuthenticatedSessionController.php
+             └── RegisteredUserController.php
+resources/
+ └── views/
+     ├── admin/dashboard.blade.php
+     └── user/dashboard.blade.php
+```
+📸 Screenshots
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Landing Page
+<img width="1107" height="604" alt="ss1" src="https://github.com/user-attachments/assets/aea7204d-01d7-452f-91c6-25283b73f4e5" />
+<img width="1255" height="609" alt="ss2" src="https://github.com/user-attachments/assets/e3315661-defd-4081-b8cc-3df11690c5a1" />
+
+Footer
+<img width="1283" height="653" alt="ss5" src="https://github.com/user-attachments/assets/75c17602-8f2f-4318-adf7-28057c0fcf55" />
+
+Admin Dashboard
+<img width="1152" height="632" alt="ss3" src="https://github.com/user-attachments/assets/de5c4ae9-6267-472e-8878-34cc2f74a140" />
+
+User Dashboard
+<img width="1389" height="729" alt="ss4" src="https://github.com/user-attachments/assets/ddbf8ad8-8cbc-47d0-a541-6bd42c18c629" />
